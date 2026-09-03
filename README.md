@@ -2,7 +2,7 @@
 
 Turn a YouTube watch history into an enriched, auditable **music catalog CSV**.
 
-[![tests](https://github.com/slammingprogramming/tune-history/actions/workflows/tests.yml/badge.svg)](https://github.com/slammingprogramming/tune-history/actions/workflows/tests.yml)
+[![tests](https://github.com/slammingprogramming/exportube/actions/workflows/tests.yml/badge.svg)](https://github.com/slammingprogramming/exportube/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
 [![Verified against a real Google Takeout export](https://img.shields.io/badge/verified-real%20Google%20Takeout%20export-success)](AGENTS.md#verified-against-a-real-google-takeout-export)

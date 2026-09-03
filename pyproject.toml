@@ -51,10 +51,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/slammingprogramming/tune-history"
-Repository = "https://github.com/slammingprogramming/tune-history"
-Issues = "https://github.com/slammingprogramming/tune-history/issues"
-Changelog = "https://github.com/slammingprogramming/tune-history/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/slammingprogramming/exportube"
+Repository = "https://github.com/slammingprogramming/exportube"
+Issues = "https://github.com/slammingprogramming/exportube/issues"
+Changelog = "https://github.com/slammingprogramming/exportube/blob/main/CHANGELOG.md"
 
 [project.scripts]
 tune-history = "tune_history.cli:cli"

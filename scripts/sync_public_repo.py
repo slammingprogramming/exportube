@@ -1,11 +1,14 @@
-"""Sync the public-safe subset of this repository into a separate working
-tree (the public/GitHub repo's checkout). This project is maintained as
-TWO separate git repositories -- a private one (everything) and a public
-one (a curated subset) -- specifically so nothing internal-only
-(AGENTS.md, any local memory/notes, real personal data used for testing)
-can ever end up in the public repo's history, even by accident: the
-public repo's git history only ever contains what this script explicitly
-copied into it.
+"""Sync the public-safe subset of this repository into the `public`
+branch's git worktree (a sibling directory -- see AGENTS.md "Dual-remote
+workflow" for how it was created: `git worktree add --orphan -b public
+../tune-history-public`). One repository, two branches with ZERO shared
+history: `main` (this directory, everything, pushed to Keybase) and
+`public` (that sibling directory, curated, pushed to GitHub) -- not two
+separate repositories. Because `public` is an orphan branch, nothing
+internal-only (AGENTS.md, any local memory/notes, real personal data used
+for testing) can ever be reachable from it even by accident: its history
+only ever contains what this script explicitly copied and someone then
+committed there.
 
 This script is intentionally an ALLOWLIST, not a denylist: it enumerates
 exactly what's safe to publish rather than trying to remember every
@@ -13,12 +16,12 @@ future sensitive file to exclude. Nothing outside ALLOWED_PATHS is ever
 copied, full stop.
 
 Usage:
-    python scripts/sync_public_repo.py <path_to_public_repo_checkout>
+    python scripts/sync_public_repo.py <path_to_public_worktree>
 
 This only copies files -- it never runs `git add`/`commit`/`push`. Review
 `git status` / `git diff` in the destination yourself before committing,
-every time. See AGENTS.md "Dual-repo workflow (private/Keybase + public/
-GitHub)" for the full process.
+every time. See AGENTS.md "Dual-remote workflow (private/Keybase +
+public/GitHub)" for the full process.
 """
 from __future__ import annotations
 
