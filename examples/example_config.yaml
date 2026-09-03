@@ -1,0 +1,19 @@
+# Example config/config.yaml -- copy to config/config.yaml and adjust.
+# Any key omitted here falls back to config/default_config.yaml.
+
+matching:
+  duration:
+    strong_tolerance_seconds: 8
+    moderate_tolerance_seconds: 25
+
+confidence:
+  thresholds:
+    high: 0.75
+    medium: 0.50
+    low: 0.25
+
+rate_limits:
+  ytdlp_concurrent_extractions: 8
+
+export:
+  output_dir: "./output"

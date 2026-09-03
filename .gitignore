@@ -1,0 +1,33 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_tmp/
+.pytest_cache/
+*.egg-info/
+
+# Local data: contains personal watch history -- never commit.
+data/
+output/
+secrets/
+.env
+config/config.yaml
+
+# A real user's personal Google Takeout export, used only for local
+# verification of the parsers against real-world data -- extremely
+# sensitive, never commit under any circumstances.
+private-takeout-for-test/
+
+# Example DB artifacts
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+
+# Local Claude Code tooling state and any local agent memory -- never
+# part of the app, never meant for the public repo either. See AGENTS.md
+# "Dual-repo workflow" -- the public repo is populated by an explicit
+# allowlist (scripts/sync_public_repo.py), not by relying on this file,
+# but these stay excluded here too for defense in depth / private-repo
+# hygiene (this is local tooling state, not project source worth
+# preserving in history).
+.claude/
+MEMORY.md

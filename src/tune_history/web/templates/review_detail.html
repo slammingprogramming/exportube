@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Review {{ video_id }} - tune-history{% endblock %}
+{% block content %}
+<h1>Review video</h1>
+<p><strong>Title:</strong> {{ video.title_raw if video else "(unknown)" }}<br>
+   <strong>Uploader:</strong> {{ video.uploader if video else "" }}<br>
+   <strong>Duration:</strong> {{ video.duration_seconds if video else "?" }} sec<br>
+   <strong>URL:</strong> <a href="{{ video.url if video else '#' }}">{{ video.url if video else '' }}</a><br>
+   <strong>Detected category:</strong> {{ detection.category if detection else "unknown" }}
+   (score {{ detection.score if detection else "?" }})</p>
+
+{% if candidate_groups|length > 1 %}
+<p><em>This video was split into {{ candidate_groups|length }} identified segments from a
+   timestamped tracklist in its description. Accepting a candidate applies to the
+   whole video (segment-level corrections aren't supported yet), so only use Accept
+   here if one segment's guess should replace the entire video's identification.</em></p>
+{% endif %}
+
+<h2>Candidates</h2>
+{% for group in candidate_groups %}
+  {% if group.track_index is not none %}
+  <h3>Segment {{ group.track_index }} {% if group.offset_seconds is not none %}(starts {{ group.offset_seconds }}s){% endif %}</h3>
+  {% endif %}
+  {% for c in group.candidates %}
+  <div class="candidate {% if c.is_selected %}selected{% endif %}">
+    <strong>#{{ c.rank }} &mdash; {{ c.artist or "(unknown artist)" }} &mdash; {{ c.track }}</strong>
+    {% if c.is_selected %}<span class="badge badge-high">selected</span>{% endif %}<br>
+    Album: {{ c.album or "-" }} | Release: {{ c.release_date or "-" }} |
+    Recording duration: {{ c.recording_duration_seconds or "-" }}s
+    (diff {{ c.duration_difference_seconds or "-" }}s) | Score: {{ c.confidence_score }}<br>
+    MusicBrainz recording: {{ c.musicbrainz_recording_id or "-" }}
+    <div class="evidence">Evidence: {{ c.evidence }}</div>
+    <form class="inline" method="post"
+          action="{{ url_for('accept_candidate', video_id=video_id, track_index=c.track_index_url, rank=c.rank) }}">
+      <button class="primary" type="submit">Accept this candidate</button>
+    </form>
+  </div>
+  {% endfor %}
+{% else %}
+  <p>No candidates were generated for this video.</p>
+{% endfor %}
+
+<h2>Manual correction</h2>
+<form method="post" action="{{ url_for('manual_edit', video_id=video_id) }}">
+  Artist: <input type="text" name="artist"><br><br>
+  Track: <input type="text" name="track"><br><br>
+  Album: <input type="text" name="album"><br><br>
+  <button type="submit">Save manual correction</button>
+</form>
+
+<h2>Other actions</h2>
+<form class="inline" method="post" action="{{ url_for('mark_unidentified', video_id=video_id) }}">
+  <button type="submit">Mark unidentified</button>
+</form>
+<form class="inline" method="post" action="{{ url_for('mark_not_music', video_id=video_id) }}">
+  <button type="submit">Mark not music</button>
+</form>
+{% endblock %}

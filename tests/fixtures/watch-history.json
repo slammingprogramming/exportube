@@ -1,0 +1,36 @@
+[
+  {
+    "header": "YouTube",
+    "title": "Watched Daft Punk - One More Time (Official Video)",
+    "titleUrl": "https://www.youtube.com/watch?v=FGBhQbmPwH8",
+    "subtitles": [{"name": "Daft Punk", "url": "https://www.youtube.com/channel/UC123"}],
+    "time": "2024-01-15T03:14:21.123Z",
+    "products": ["YouTube"],
+    "activityControls": ["YouTube watch history"]
+  },
+  {
+    "header": "YouTube",
+    "title": "Watched Daft Punk - One More Time (Official Video)",
+    "titleUrl": "https://www.youtube.com/watch?v=FGBhQbmPwH8",
+    "subtitles": [{"name": "Daft Punk", "url": "https://www.youtube.com/channel/UC123"}],
+    "time": "2024-03-02T11:00:00.000Z",
+    "products": ["YouTube"],
+    "activityControls": ["YouTube watch history"]
+  },
+  {
+    "header": "YouTube",
+    "title": "Watched a video that has been removed",
+    "time": "2024-02-01T00:00:00.000Z",
+    "products": ["YouTube"],
+    "activityControls": ["YouTube watch history"]
+  },
+  {
+    "header": "YouTube",
+    "title": "Watched Joe Rogan Experience #1234",
+    "titleUrl": "https://www.youtube.com/watch?v=abcdefghijk",
+    "subtitles": [{"name": "PowerfulJRE", "url": "https://www.youtube.com/channel/UC456"}],
+    "time": "2024-02-10T20:00:00.000Z",
+    "products": ["YouTube"],
+    "activityControls": ["YouTube watch history"]
+  }
+]

@@ -1,0 +1,76 @@
+# tune-history default configuration.
+# Copy to config/config.yaml and edit, or override any value with an
+# environment variable named TUNE_HISTORY_<UPPER_SNAKE_PATH>, e.g.
+# TUNE_HISTORY_MATCHING__DURATION__STRONG_TOLERANCE_SECONDS=15
+
+storage:
+  data_dir: "./data"
+  db_path: "./data/tune_history.sqlite3"
+  cache_ttl_days:
+    youtube_metadata: 30
+    musicbrainz: 90
+    discogs: 90
+
+rate_limits:
+  musicbrainz_requests_per_second: 1.0
+  youtube_api_requests_per_second: 5.0
+  ytdlp_concurrent_extractions: 4
+  # Discogs' documented limit is 60/min authenticated; kept a little under.
+  discogs_requests_per_minute: 55.0
+
+matching:
+  duration:
+    # Duration is a weighted signal, never a hard gate. These tolerance
+    # "regimes" are used to compute a continuous score (see
+    # matching/duration_match.py) rather than a single pass/fail cutoff.
+    strong_tolerance_seconds: 10        # near-exact: full duration score
+    strong_tolerance_pct: 0.03
+    moderate_tolerance_seconds: 30      # allows for intros/outros
+    moderate_tolerance_pct: 0.12
+    loose_tolerance_seconds: 90         # allows for extended edits, live intros
+    loose_tolerance_pct: 0.35
+    max_ratio_before_zero: 4.0          # video vastly longer/shorter than recording -> ~0 score
+
+  text:
+    fuzzy_match_threshold: 0.72
+
+confidence:
+  # Weights are additive evidence points, normalized to 0-1 at the end.
+  # Tune freely; nothing in the codebase hard-codes a "trusted" source.
+  weights:
+    youtube_music_track_field: 5
+    youtube_music_artist_field: 5
+    youtube_music_album_field: 4
+    title_exact_or_near_match: 4
+    artist_name_match: 4
+    duration_match: 4
+    musicbrainz_match: 5
+    isrc_match: 9
+    topic_channel_identity: 3
+    official_artist_channel: 3
+    vevo_channel: 3
+    description_evidence: 2
+    release_metadata_present: 2
+    multiple_candidate_agreement: 3
+    secondary_metadata_source_match: 3  # e.g. Discogs corroborating MusicBrainz/YouTube
+  thresholds:
+    high: 0.80
+    medium: 0.55
+    low: 0.30
+    # below "low" -> unidentified
+
+music_detection:
+  # Points toward "this video contains identifiable music"; separate from
+  # identification confidence above. See music_detection/detector.py.
+  min_score_to_consider_music: 3
+  long_form_duration_seconds: 1200   # 20 min+ => likely mix/DJ set/compilation/stream
+  very_long_duration_seconds: 2700   # 45 min+ => strong multi-track signal
+
+export:
+  output_dir: "./output"
+  history_csv_name: "youtube_music_history.csv"
+  canonical_csv_name: "canonical_music_library.csv"
+
+logging:
+  level: "INFO"
+  file: "./data/logs/tune_history.log"

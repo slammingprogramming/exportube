@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Export complete - tune-history{% endblock %}
+{% block content %}
+<h1>Export complete</h1>
+<p>Wrote {{ result.history_rows }} rows to <code>{{ result.history_csv }}</code></p>
+<p>Wrote {{ result.canonical_rows }} rows to <code>{{ result.canonical_csv }}</code></p>
+<p><a href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+{% endblock %}
