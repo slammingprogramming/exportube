@@ -137,14 +137,14 @@ def test_official_music_video_with_extras_long_duration():
 
 
 def test_official_video_with_quality_descriptor_detected():
-    # Regression test: confirmed against a real video ("CAKE - The
-    # Distance (Official HD Video)") that a quality descriptor (HD/4K/HQ)
+    # Regression test: confirmed against a real video ("Skyline Echo -
+    # Fading Light (Official HD Video)") that a quality descriptor (HD/4K/HQ)
     # between "Official" and "Video" was not recognized, dropping the
     # video's score below the is_music threshold entirely even though the
     # channel (post-rename, no longer literally "...VEVO") gave no other
     # signal. See AGENTS.md "Verified against a real Google Takeout export".
     d = MusicDetector()
-    video = make_video(title="CAKE - The Distance (Official HD Video)", uploader="CAKE")
+    video = make_video(title="Skyline Echo - Fading Light (Official HD Video)", uploader="Skyline Echo")
     r = d.detect(video)
     assert r.signals["official_video_title_marker"] is True
     assert r.is_music

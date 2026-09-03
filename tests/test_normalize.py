@@ -19,18 +19,18 @@ def test_parses_takeout_html_formatted_timestamp():
 def test_us_timezone_abbreviations_resolve_to_correct_utc_offset():
     # Regression test: confirmed against a real Google Takeout
     # watch-history.html export, where every entry is timestamped like
-    # "Aug 21, 2026, 11:04:24 PM EDT". dateutil cannot resolve "EDT" on
+    # "Mar 21, 2025, 11:04:24 PM EDT". dateutil cannot resolve "EDT" on
     # its own and silently returns a naive datetime still in local time;
     # without the tzinfos table in normalize.py, normalize_timestamp would
     # wrongly stamp that naive local time as if it were already UTC --
     # off by exactly the zone's offset, on every single entry.
-    edt = normalize_timestamp("Aug 21, 2026, 11:04:24 PM EDT")
+    edt = normalize_timestamp("Mar 21, 2025, 11:04:24 PM EDT")
     assert edt.hour == 3 and edt.day == 22  # 23:04 EDT (UTC-4) -> 03:04 UTC next day
-    est = normalize_timestamp("Jan 21, 2026, 11:04:24 PM EST")
+    est = normalize_timestamp("Jan 21, 2025, 11:04:24 PM EST")
     assert est.hour == 4 and est.day == 22  # UTC-5
-    pst = normalize_timestamp("Aug 21, 2026, 11:04:24 PM PST")
+    pst = normalize_timestamp("Mar 21, 2025, 11:04:24 PM PST")
     assert pst.hour == 7 and pst.day == 22  # UTC-8
-    pdt = normalize_timestamp("Aug 21, 2026, 11:04:24 PM PDT")
+    pdt = normalize_timestamp("Mar 21, 2025, 11:04:24 PM PDT")
     assert pdt.hour == 6 and pdt.day == 22  # UTC-7
 
 
@@ -39,7 +39,7 @@ def test_narrow_no_break_space_before_am_pm_is_handled():
     # no-break space), not a regular ASCII space. Build the string with
     # the exact codepoint so this doesn't silently degrade into testing
     # an ordinary space instead.
-    raw = "Aug 21, 2026, 11:04:24" + chr(0x202F) + "PM EDT"
+    raw = "Mar 21, 2025, 11:04:24" + chr(0x202F) + "PM EDT"
     dt = normalize_timestamp(raw)
     assert dt is not None
     assert dt.hour == 3 and dt.day == 22

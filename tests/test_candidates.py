@@ -40,46 +40,46 @@ def test_duplicate_candidates_are_merged():
 
 
 def test_swapped_order_candidate_proposed_for_track_artist_titles():
-    # Regression test: confirmed against a real video ("New Divide
-    # (Official Music Video) [4K Upgrade] - Linkin Park") where the
+    # Regression test: confirmed against a real video ("Horizon Fade
+    # (Official Music Video) [4K Upgrade] - The Night Owls") where the
     # artist trails the track -- the primary "Artist - Track" dash-split
     # gets this backwards, so a swapped-order candidate must also be
     # proposed for MusicBrainz to have a chance at the correct one.
-    video = {"uploader": "Linkin Park", "title": "New Divide [4K Upgrade] - Linkin Park"}
-    title_parse = parse_title("New Divide [4K Upgrade] - Linkin Park")
+    video = {"uploader": "The Night Owls", "title": "Horizon Fade [4K Upgrade] - The Night Owls"}
+    title_parse = parse_title("Horizon Fade [4K Upgrade] - The Night Owls")
     candidates = build_seed_candidates(video, title_parse)
-    assert any(c.artist == "Linkin Park" and c.track == "New Divide [4K Upgrade]" for c in candidates)
+    assert any(c.artist == "The Night Owls" and c.track == "Horizon Fade [4K Upgrade]" for c in candidates)
     # The (wrong) primary reading is still proposed too -- scoring sorts it out.
-    assert any(c.artist == "New Divide [4K Upgrade]" and c.track == "Linkin Park" for c in candidates)
+    assert any(c.artist == "Horizon Fade [4K Upgrade]" and c.track == "The Night Owls" for c in candidates)
 
 
 def test_featuring_clause_stripped_from_track_candidate():
-    # Regression test: confirmed against a real video ("Chamillionaire -
-    # Ridin' (Official Music Video) ft. Krayzie Bone") where "ft. Krayzie
-    # Bone" was baked into the track guess, causing the MusicBrainz search
-    # (for the literal recording title, which doesn't include the
-    # featuring clause) to come back empty.
-    video = {"uploader": "ChamillionaireVEVO", "title": "Chamillionaire - Ridin' ft. Krayzie Bone"}
-    title_parse = parse_title("Chamillionaire - Ridin' ft. Krayzie Bone")
+    # Regression test: confirmed against a real video ("Echo Ridge -
+    # Overdrive (Official Music Video) ft. MC Skyline") where the "ft. MC
+    # Skyline" clause was baked into the track guess, causing the
+    # MusicBrainz search (for the literal recording title, which doesn't
+    # include the featuring clause) to come back empty.
+    video = {"uploader": "Echo RidgeVEVO", "title": "Echo Ridge - Overdrive ft. MC Skyline"}
+    title_parse = parse_title("Echo Ridge - Overdrive ft. MC Skyline")
     candidates = build_seed_candidates(video, title_parse)
-    assert any(c.artist == "Chamillionaire" and c.track == "Ridin'" for c in candidates)
+    assert any(c.artist == "Echo Ridge" and c.track == "Overdrive" for c in candidates)
 
 
 def test_unrecognized_bracket_text_stripped_for_a_search_candidate():
-    # Regression test: confirmed against a real video ("New Divide
-    # (Official Music Video) [4K Upgrade] - Linkin Park") where
+    # Regression test: confirmed against a real video ("Horizon Fade
+    # (Official Music Video) [4K Upgrade] - The Night Owls") where
     # "[4K Upgrade]" survives into the clean/display title (correctly --
     # it's not known-decorative boilerplate) but sinks the MusicBrainz
-    # search built from it (MusicBrainz's actual recording is just "New
-    # Divide"). A fully-bracket-stripped variant must be proposed too,
+    # search built from it (MusicBrainz's actual recording is just
+    # "Horizon Fade"). A fully-bracket-stripped variant must be proposed too,
     # in both orientations, without removing the original from the pool
     # (that one still matters for display / as a fallback).
-    video = {"uploader": "Linkin Park", "title": "New Divide [4K Upgrade] - Linkin Park"}
-    title_parse = parse_title("New Divide [4K Upgrade] - Linkin Park")
+    video = {"uploader": "The Night Owls", "title": "Horizon Fade [4K Upgrade] - The Night Owls"}
+    title_parse = parse_title("Horizon Fade [4K Upgrade] - The Night Owls")
     candidates = build_seed_candidates(video, title_parse)
-    assert any(c.artist == "Linkin Park" and c.track == "New Divide" for c in candidates)
+    assert any(c.artist == "The Night Owls" and c.track == "Horizon Fade" for c in candidates)
     # The bracket-preserving readings are still proposed too.
-    assert any(c.artist == "Linkin Park" and c.track == "New Divide [4K Upgrade]" for c in candidates)
+    assert any(c.artist == "The Night Owls" and c.track == "Horizon Fade [4K Upgrade]" for c in candidates)
 
 
 def test_bracket_stripping_is_a_noop_when_nothing_to_strip():

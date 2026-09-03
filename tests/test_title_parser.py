@@ -77,10 +77,10 @@ def test_acoustic_marker_detected():
 
 
 def test_official_hd_video_tag_stripped():
-    # Regression test: confirmed against a real video ("CAKE - The
-    # Distance (Official HD Video)") that "(Official HD Video)" wasn't
+    # Regression test: confirmed against a real video ("Skyline Echo -
+    # Fading Light (Official HD Video)") that "(Official HD Video)" wasn't
     # being recognized as decorative and leaked into the clean title.
-    r = parse_title("CAKE - The Distance (Official HD Video)")
-    assert r.artist_guess == "CAKE"
-    assert r.track_guess == "The Distance"
+    r = parse_title("Skyline Echo - Fading Light (Official HD Video)")
+    assert r.artist_guess == "Skyline Echo"
+    assert r.track_guess == "Fading Light"
     assert "HD" not in r.clean_title

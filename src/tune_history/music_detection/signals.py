@@ -24,7 +24,7 @@ TITLE_DASH_SPLIT_RE = re.compile(r"\s+[-–—]\s+")
 #   "(Official Music Video)"  "[Official HD Video]"  "- Official 4K Video"
 # A quality/resolution descriptor (HD/HQ/4K/UHD/1080p/...) commonly sits
 # between "Official" and "Video" -- confirmed missing against a real
-# example ("CAKE - The Distance (Official HD Video)") that this originally
+# example ("Skyline Echo - Fading Light (Official HD Video)") that this originally
 # failed to recognize, dropping the video's music_detection score below
 # threshold entirely. See AGENTS.md "Verified against a real Google
 # Takeout export".

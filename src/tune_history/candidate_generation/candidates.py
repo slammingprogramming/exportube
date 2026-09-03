@@ -30,8 +30,8 @@ def _strip_all_brackets(text: str | None) -> str | None:
     text for *display*, e.g. "[4K Upgrade]", rather than guessing whether
     it's safe to delete -- see its docstring). That preserved text is
     exactly the kind of noise that can sink a MusicBrainz search query
-    though (confirmed on a real example: "New Divide [4K Upgrade]" found
-    no match, but MusicBrainz's actual recording is titled "New Divide").
+    though (confirmed on a real example: "Horizon Fade [4K Upgrade]" found
+    no match, but MusicBrainz's actual recording is titled "Horizon Fade").
     So this is used only to propose an *additional* search-oriented
     candidate, never to overwrite what's shown to the user.
     """
@@ -88,8 +88,8 @@ def build_seed_candidates(video: dict, title_parse: TitleParseResult) -> list[Ca
 
             # Titles aren't always "Artist - Track"; some real uploads use
             # "Track - Artist" instead (confirmed against a real example:
-            # "New Divide (Official Music Video) [4K Upgrade] - Linkin
-            # Park", where the artist trails the track -- the primary
+            # "Horizon Fade (Official Music Video) [4K Upgrade] - The Night
+            # Owls", where the artist trails the track -- the primary
             # dash-split above got this backwards). Propose the swapped
             # reading too so MusicBrainz gets a fair shot either way;
             # confidence scoring (duration/text match) naturally favors
@@ -121,8 +121,8 @@ def build_seed_candidates(video: dict, title_parse: TitleParseResult) -> list[Ca
 
         # A "feat./ft./featuring X" clause is often baked into the raw
         # track title text rather than cleanly separated out (e.g.
-        # "Ridin' ft. Krayzie Bone", confirmed against a real example) --
-        # MusicBrainz's actual recording title is usually just "Ridin'",
+        # "Overdrive ft. MC Skyline", confirmed against a real example) --
+        # MusicBrainz's actual recording title is usually just "Overdrive",
         # so also search on the track with that clause removed.
         stripped_track = strip_featuring(title_parse.track_guess)
         if stripped_track and stripped_track != title_parse.track_guess:

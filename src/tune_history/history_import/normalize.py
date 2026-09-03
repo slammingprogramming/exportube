@@ -17,7 +17,7 @@ from dateutil import parser as dateutil_parser
 # ...) on its own -- confirmed against a real Google Takeout
 # watch-history.html export (spec section 4 / AGENTS.md "Needs
 # verification against a real Google Takeout export"): every entry there
-# is timestamped like "Aug 21, 2026, 11:04:24 PM EDT", and without this
+# is timestamped like "Mar 21, 2025, 11:04:24 PM EDT", and without this
 # table dateutil silently drops the "EDT" and returns a NAIVE datetime
 # still in local time, which normalize_timestamp would then wrongly stamp
 # as if it were already UTC -- a multi-hour error on every single history

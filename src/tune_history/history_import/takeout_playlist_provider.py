@@ -10,7 +10,7 @@ under `playlists/`:
                                          Playlist ID, Playlist Title (Original), ...
     Watch later-videos.csv           <- one file per playlist, ID + add-timestamp only:
                                          Video Id,Playlist Video Creation Timestamp
-                                         O4TMXPfxufw,2023-08-06T02:41:44+00:00
+                                         sampleVid01,2024-01-01T00:00:00+00:00
 
 Two things differ from what was assumed before verification:
 

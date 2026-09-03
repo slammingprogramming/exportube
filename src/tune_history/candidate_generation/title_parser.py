@@ -26,7 +26,7 @@ _DECORATIVE_PHRASES = {
     "music video", "hd video", "4k video", "official 4k video", "video",
     "official visualizer", "full video", "official trailer",
     # Quality descriptor between "Official" and "Video" -- confirmed
-    # against a real example ("CAKE - The Distance (Official HD Video)")
+    # against a real example ("Skyline Echo - Fading Light (Official HD Video)")
     # that this set originally missed. See music_detection/signals.py
     # OFFICIAL_VIDEO_TITLE_MARKER_RE, which has the matching fix.
     "official hd video", "official hq video", "official uhd video",

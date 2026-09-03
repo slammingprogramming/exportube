@@ -47,7 +47,7 @@ def test_playlist_id_populated_from_manifest():
     provider = TakeoutPlaylistProvider(FIXTURES)
     events = list(provider.fetch())
     watch_later = [e for e in events if e.source_playlist_name == "Watch later"]
-    assert all(e.source_playlist_id == "PL_CvCJf-yhMyAo_YzrF-l65Mwq81PN79j" for e in watch_later)
+    assert all(e.source_playlist_id == "PL_EXAMPLE00000000000000000" for e in watch_later)
 
 
 def test_playlist_id_blank_when_no_manifest_entry():
@@ -85,7 +85,7 @@ def test_zip_archive_supported(tmp_path):
     events = list(provider.fetch())
     assert len(events) == 2
     assert all(e.source_playlist_name == "Watch later" for e in events)
-    assert all(e.source_playlist_id == "PL_CvCJf-yhMyAo_YzrF-l65Mwq81PN79j" for e in events)
+    assert all(e.source_playlist_id == "PL_EXAMPLE00000000000000000" for e in events)
 
 
 def test_no_playlists_directory_yields_nothing(tmp_path):
