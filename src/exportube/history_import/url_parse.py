@@ -16,7 +16,7 @@ A valid YouTube video ID is 11 characters from [A-Za-z0-9_-]. We validate
 against that shape to avoid false positives from unrelated query params.
 
 Also recognized-but-intentionally-unresolvable (confirmed against a real
-Google Takeout watch-history.html export -- see AGENTS.md "Needs
+Google Takeout watch-history.html export -- see docs/ARCHITECTURE.md "Needs
 verification against a real Google Takeout export"): YouTube Community
 posts, `https://www.youtube.com/post/<post_id>`. A real account's watch
 history can include entries for viewing a Community post (text/image,

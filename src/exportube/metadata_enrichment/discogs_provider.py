@@ -16,7 +16,7 @@ Scope note: Discogs' search endpoint returns release-level metadata
 per-track duration -- getting that would require a second API call per
 candidate release (`GET /releases/{id}`), which roughly doubles Discogs
 API traffic for a second-tier corroborating source. Left as a future
-enhancement (see AGENTS.md); v1 candidates from this provider carry no
+enhancement (see docs/ARCHITECTURE.md); v1 candidates from this provider carry no
 recording_duration_seconds and so never contribute duration_match
 evidence, only text/identity/cross-source-agreement evidence via
 confidence/engine.py.

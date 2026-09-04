@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Turn YouTube watch history into an enriched, auditable music catalog CSV."
 requires-python = ">=3.10"
 readme = "README.md"
-license = { text = "MIT" }
+license = { text = "AGPL-3.0-or-later" }
 authors = [{ name = "slammingprogramming" }]
 keywords = [
     "youtube", "youtube-music", "music", "musicbrainz", "google-takeout",
@@ -15,7 +15,7 @@ classifiers = [
     "Environment :: Console",
     "Environment :: Web Environment",
     "Intended Audience :: End Users/Desktop",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",

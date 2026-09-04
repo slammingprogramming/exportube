@@ -1,7 +1,7 @@
 """MusicMetadataProvider interface.
 
 Additional providers (AcoustID, Discogs, Cover Art Archive, ...) plug in
-here later without touching music_identification -- see AGENTS.md
+here later without touching music_identification -- see docs/ARCHITECTURE.md
 "Adding a new metadata_enrichment provider".
 """
 from __future__ import annotations

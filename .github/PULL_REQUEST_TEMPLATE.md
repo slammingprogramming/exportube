@@ -10,8 +10,8 @@
 
 - [ ] `pytest` passes locally
 - [ ] Added/updated tests for this change
-- [ ] Updated `AGENTS.md`/`docs/` if this changes architecture, config, or
-      adds/replaces a provider
+- [ ] Updated `docs/ARCHITECTURE.md`/`docs/` if this changes architecture,
+      config, or adds/replaces a provider
 
 ## Checklist
 

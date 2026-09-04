@@ -38,7 +38,7 @@ any third party.** MusicBrainz and Discogs only ever receive the specific
 artist/track/album strings needed for one lookup at a time, not your
 history. Neither MusicBrainz nor Discogs ever receives audio -- both
 integrations are metadata search only; no video/audio is downloaded from
-YouTube and forwarded anywhere (see AGENTS.md "Known limitations" for why
+YouTube and forwarded anywhere (see docs/ARCHITECTURE.md "Known limitations" for why
 AcoustID-style audio fingerprinting was deliberately not implemented).
 
 ## Data you should treat as sensitive

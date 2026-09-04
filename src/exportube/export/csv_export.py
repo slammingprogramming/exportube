@@ -75,7 +75,7 @@ def _apply_correction(base_row: dict, correction) -> dict:
     video is the user asserting "this whole video is actually just X",
     which supersedes the automated split, not one segment of it (the
     review UI/CLI correction actions are video-scoped, not segment-scoped,
-    in this version -- see AGENTS.md 'Known limitations')."""
+    in this version -- see docs/ARCHITECTURE.md 'Known limitations')."""
     row = dict(base_row)
     action = correction["action"]
     payload = json.loads(correction["payload"]) if correction["payload"] else {}
@@ -263,7 +263,7 @@ def gather_export_rows(db: Database) -> list[dict]:
         # Takeout export can include YouTube Community post views
         # (https://www.youtube.com/post/...) mixed into watch history
         # alongside actual video watches (verified against a real export,
-        # ~0.2% of entries there -- see AGENTS.md). url_type isn't
+        # ~0.2% of entries there -- see docs/ARCHITECTURE.md). url_type isn't
         # persisted on history_entries, so this re-parses the same raw URL
         # rather than adding a schema column for a display-only distinction.
         parsed_url = parse_video_url(entry["video_url_raw"])

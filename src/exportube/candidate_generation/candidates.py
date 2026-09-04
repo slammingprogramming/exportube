@@ -95,7 +95,7 @@ def build_seed_candidates(video: dict, title_parse: TitleParseResult) -> list[Ca
             # confidence scoring (duration/text match) naturally favors
             # whichever orientation is actually correct, and the wrong one
             # just won't find a matching MusicBrainz recording. See
-            # AGENTS.md "Verified against a real Google Takeout export".
+            # docs/ARCHITECTURE.md "Verified against a real Google Takeout export".
             add(
                 title_parse.track_guess, title_parse.artist_guess, None, None,
                 "title_parse_swapped", "title_parse_swapped",

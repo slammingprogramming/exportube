@@ -2,9 +2,9 @@
 allowlist file out of a real Takeout export, then runs the REAL pipeline
 (yt-dlp + MusicBrainz, live network calls) end to end. Useful for trying
 the pipeline against a hand-picked or sampled slice of a large real watch
-history without committing to a full run -- see AGENTS.md "Verified
-against a real Google Takeout export" for how this was used during
-development.
+history without committing to a full run -- see docs/ARCHITECTURE.md
+"Verified against a real Google Takeout export" for how this was used
+during development.
 
 Not part of the application itself. Writes its (personal-data-derived)
 output under the given output directory -- never commit that output or

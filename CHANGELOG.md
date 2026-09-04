@@ -24,8 +24,9 @@ project doesn't yet follow strict semantic versioning (pre-1.0).
 
 ### Fixed
 Found via verification against a real Google Takeout export and a real
-end-to-end run against live YouTube/MusicBrainz -- see AGENTS.md "Verified
-against a real Google Takeout export" for full details and numbers:
+end-to-end run against live YouTube/MusicBrainz -- see
+docs/ARCHITECTURE.md "Verified against a real Google Takeout export" for
+full details and numbers:
 - Timezone abbreviations (e.g. "EDT") in Takeout HTML timestamps were
   silently mis-parsed, shifting every HTML-sourced watch timestamp by
   several hours.

@@ -2,7 +2,7 @@
 playlists) -- supplementary to watch-history import, spec section 18.
 
 **Verified against a real Google Takeout export** (September 2026, default
-export settings, see AGENTS.md "Needs verification against a real Google
+export settings, see docs/ARCHITECTURE.md "Needs verification against a real Google
 Takeout export" -- this is that verification). Actual observed structure
 under `playlists/`:
 

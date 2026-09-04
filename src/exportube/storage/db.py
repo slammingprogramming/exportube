@@ -1,6 +1,6 @@
 """SQLite storage layer.
 
-Design goals (see AGENTS.md "Storage & resumability"):
+Design goals (see docs/ARCHITECTURE.md "Storage & resumability"):
   * Every watch-history entry is retained forever, even duplicates and
     unresolvable ones (history_entries table is append-only per import
     batch; re-importing the same file is idempotent via a content hash).

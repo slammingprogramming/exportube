@@ -1,6 +1,6 @@
 """Title parsing: raw -> clean, with version info preserved separately.
 
-Guiding rule (see AGENTS.md "Title parsing philosophy" and spec section 12):
+Guiding rule (see docs/ARCHITECTURE.md "Title parsing philosophy" and spec section 12):
 strip only purely decorative wrapper text ("[Official Video]", "(HD)"),
 never information that distinguishes a recording version ("Live",
 "Remix", "Acoustic", "2024 Remaster", "Radio Edit" ...). When in doubt,

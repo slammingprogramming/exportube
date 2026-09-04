@@ -7,7 +7,7 @@ a music video with substantial non-song material, or not music at all.
 That category matters downstream: candidate_generation and
 music_identification treat a single_track video very differently from a
 dj_mix (where "identifying the song" may mean "identifying zero, one, or
-many songs" -- see storage/models.Candidate / AGENTS.md "multi-track model").
+many songs" -- see storage/models.Candidate / docs/ARCHITECTURE.md "multi-track model").
 
 This is deliberately NOT keyword-only: see signals.py for the full list of
 independent signals (YouTube Music panel data, channel identity, official

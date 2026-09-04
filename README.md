@@ -3,9 +3,9 @@
 Turn a YouTube watch history into an enriched, auditable **music catalog CSV**.
 
 [![tests](https://github.com/slammingprogramming/exportube/actions/workflows/tests.yml/badge.svg)](https://github.com/slammingprogramming/exportube/actions/workflows/tests.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License: AGPL v3](https://img.shields.io/badge/license-AGPLv3-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
-[![Verified against a real Google Takeout export](https://img.shields.io/badge/verified-real%20Google%20Takeout%20export-success)](AGENTS.md#verified-against-a-real-google-takeout-export)
+[![Verified against a real Google Takeout export](https://img.shields.io/badge/verified-real%20Google%20Takeout%20export-success)](docs/ARCHITECTURE.md#verified-against-a-real-google-takeout-export)
 [![Security Policy](https://img.shields.io/badge/security-policy-informational.svg)](SECURITY.md)
 [![Privacy: local-first](https://img.shields.io/badge/privacy-local--first-informational.svg)](docs/PRIVACY.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -29,9 +29,9 @@ identified with accurate MusicBrainz artist/track/album/ISRC data, including
 correctly merging two different video uploads of the same song into one
 canonical recording.
 
-See [`AGENTS.md`](AGENTS.md) for the full architecture reference (this is
-the file to read before changing code). See `docs/` for methodology,
-privacy, and setup documentation.
+See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the full
+architecture reference (this is the file to read before changing code).
+See `docs/` for methodology, privacy, and setup documentation.
 
 ## Contents
 
@@ -186,8 +186,9 @@ pattern that wasn't recognized, a "feat. X" clause breaking MusicBrainz
 search, "Track - Artist" (reversed) titles being parsed backwards, and
 age-restricted videos not being classified as unavailable).
 
-See AGENTS.md "Verified against a real Google Takeout export" for the
-full list, exact numbers, and what's still unverified (mainly:
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) "Verified against a real
+Google Takeout export" for the full list, exact numbers, and what's still
+unverified (mainly:
 non-English exports, and JSON-format history specifically, since the
 verified export used HTML).
 
@@ -222,8 +223,8 @@ for the full accounting of what goes where.
 
 ## Documentation
 
-- [AGENTS.md](AGENTS.md) -- architecture reference for anyone (human or
-  agent) working on this codebase
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) -- architecture reference
+  for anyone working on this codebase
 - [docs/METHODOLOGY.md](docs/METHODOLOGY.md) -- how detection/identification/confidence work
 - [docs/PRIVACY.md](docs/PRIVACY.md) -- what data goes where
 - [docs/YOUTUBE_AUTH.md](docs/YOUTUBE_AUTH.md) -- account-based acquisition, and its real limits
@@ -245,4 +246,4 @@ private) reporting process.
 
 ## License
 
-[MIT](LICENSE) &copy; [slammingprogramming](https://github.com/slammingprogramming)
+[AGPL-3.0](LICENSE) &copy; [slammingprogramming](https://github.com/slammingprogramming)

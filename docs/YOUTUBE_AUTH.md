@@ -22,7 +22,8 @@ the video listing from it. This is the same mechanism yt-dlp uses to
 download any other playlist-shaped page you're authorized to view; it is
 not an API, and it is not guaranteed to remain stable if YouTube changes
 that page's structure (see `history_import/youtube_provider.py` for the
-implementation, and `AGENTS.md` for what to do if it breaks).
+implementation; see "If YouTube changes the history feed page" below for
+what to do if it breaks).
 
 ```bash
 exportube import youtube --cookies-from-browser chrome

@@ -24,7 +24,7 @@ private-takeout-for-test/
 
 # Local Claude Code tooling state and any local agent memory -- never
 # part of the app, never meant for the public repo either. See AGENTS.md
-# "Dual-repo workflow" -- the public repo is populated by an explicit
+# "Dual-remote workflow" -- the public repo is populated by an explicit
 # allowlist (scripts/sync_public_repo.py), not by relying on this file,
 # but these stay excluded here too for defense in depth / private-repo
 # hygiene (this is local tooling state, not project source worth

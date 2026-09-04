@@ -12,7 +12,8 @@ per-entry watch timestamps, and needs no ongoing authentication.
    checked (you can deselect everything else to keep the export smaller).
 4. Choose export format: leave the default (it includes both JSON and
    HTML history files; Exportube prefers JSON when both are present and
-   falls back to HTML otherwise -- see `AGENTS.md` "Takeout formats").
+   falls back to HTML otherwise -- see `docs/ARCHITECTURE.md`'s module map
+   for `takeout_provider.py`).
 5. Choose delivery method (a downloadable .zip is simplest) and create the
    export. Google will email you when it's ready -- for a long watch
    history this can take a while.
@@ -63,8 +64,9 @@ to any video that's in one -- pass `--no-include-playlists` to skip this.
 Playlist membership is **never** treated as a watch: a video that's only
 in a playlist (never actually in your watch history) still gets no watch
 date and doesn't count toward `watch_count`. This part of the format
-hasn't been verified against a real export yet -- see AGENTS.md "Needs
-verification against a real Google Takeout export" if something looks off.
+hasn't been verified against a real export yet -- see
+docs/ARCHITECTURE.md "Verified against a real Google Takeout export"
+("Still unverified" subsection) if something looks off.
 
 ## Troubleshooting
 

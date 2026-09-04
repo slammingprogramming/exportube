@@ -26,7 +26,7 @@ TITLE_DASH_SPLIT_RE = re.compile(r"\s+[-–—]\s+")
 # between "Official" and "Video" -- confirmed missing against a real
 # example ("Skyline Echo - Fading Light (Official HD Video)") that this originally
 # failed to recognize, dropping the video's music_detection score below
-# threshold entirely. See AGENTS.md "Verified against a real Google
+# threshold entirely. See docs/ARCHITECTURE.md "Verified against a real Google
 # Takeout export".
 _QUALITY_WORD = r"(hd|hq|4k|uhd|8k|1080p?|720p?|high\s*quality)\s+"
 OFFICIAL_VIDEO_TITLE_MARKER_RE = re.compile(

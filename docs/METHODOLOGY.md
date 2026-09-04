@@ -89,7 +89,7 @@ back to a single whole-video guess, honestly labeled as such.
 
 The result: one CSV row per identified (or attempted) segment for a
 multi-track video with a tracklist, exactly one row otherwise. See
-AGENTS.md "Multi-track identification" for the storage/export mechanics.
+docs/ARCHITECTURE.md "Multi-track identification" for the storage/export mechanics.
 
 ## 3. Metadata enrichment: MusicBrainz + optional Discogs (`metadata_enrichment/`)
 
@@ -110,8 +110,8 @@ alongside MusicBrainz via `metadata_enrichment/multi_provider.py
 FanOutProvider` -- `identify()` doesn't know or care how many providers
 are configured. Because Discogs doesn't expose MusicBrainz recording IDs,
 its candidates merge into an existing MusicBrainz-identified candidate by
-matching (artist, track) text rather than by ID (see AGENTS.md "Second
-metadata_enrichment provider (Discogs) and candidate merging" for why the
+matching (artist, track) text rather than by ID (see docs/ARCHITECTURE.md
+"Second metadata_enrichment provider (Discogs) and candidate merging" for why the
 merge logic specifically had to account for this), earning
 `secondary_metadata_source_match` evidence (+3 default) when they agree.
 Discogs' search results don't include per-track duration, so
@@ -174,7 +174,7 @@ for release date. See `storage/models.VideoRecord` and
   (`search_recordings`, optionally `lookup_by_isrc`), add it to the
   `providers` list in `cli.py`'s `identify` command -- `FanOutProvider`
   handles the rest, including candidates merging correctly even without a
-  MusicBrainz recording ID (see how Discogs works, AGENTS.md). Reuses
+  MusicBrainz recording ID (see how Discogs works, docs/ARCHITECTURE.md). Reuses
   `secondary_metadata_source_match`, or add a dedicated weight in
   `config/default_config.yaml confidence.weights`.
 - **New history source**: implement `history_import.base.HistoryProvider`

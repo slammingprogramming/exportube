@@ -10,7 +10,7 @@ What are you trying to do that the tool doesn't support today?
 
 **Proposed approach (optional)**
 If you have a sense of how this would fit the existing architecture (see
-[AGENTS.md](../../AGENTS.md)), sketch it here -- e.g. a new
+[docs/ARCHITECTURE.md](../../docs/ARCHITECTURE.md)), sketch it here -- e.g. a new
 `metadata_enrichment` provider, a config option, a CLI flag.
 
 **Alternatives considered**

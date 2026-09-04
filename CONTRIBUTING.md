@@ -8,10 +8,11 @@ keeping changes scoped and well-tested matters more here than volume.
 For anything beyond a small fix, please open an issue first to discuss the
 approach. In particular:
 
-- Read [AGENTS.md](AGENTS.md) -- it's the architecture reference and
-  explains *why* things are built the way they are, including several
-  non-obvious decisions found by testing against a real Google Takeout
-  export (see "Verified against a real Google Takeout export").
+- Read [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) -- it's the
+  architecture reference and explains *why* things are built the way they
+  are, including several non-obvious decisions found by testing against a
+  real Google Takeout export (see "Verified against a real Google Takeout
+  export").
 - Read [docs/METHODOLOGY.md](docs/METHODOLOGY.md) if your change touches
   music detection, identification, or confidence scoring.
 - Security issues go through [SECURITY.md](SECURITY.md)'s process, not a
@@ -30,7 +31,7 @@ pytest
 ## Making a change
 
 1. Fork and branch from `main`.
-2. Write or update tests alongside your change -- see AGENTS.md "Testing"
+2. Write or update tests alongside your change -- see docs/ARCHITECTURE.md "Testing"
    for how the suite is organized and how to test against fakes rather
    than the network. Every module has a matching `tests/test_*.py`.
 3. Run the full suite (`pytest`) before opening a PR; it should stay
@@ -38,16 +39,16 @@ pytest
 4. Keep the change focused. If you find something else worth fixing along
    the way, mention it in the PR description or open a separate issue --
    don't bundle unrelated changes.
-5. Update `AGENTS.md`/`docs/` if you change architecture, add a config
-   option, or add/replace a provider -- these docs are expected to stay
-   accurate, not aspirational.
+5. Update `docs/ARCHITECTURE.md`/`docs/` if you change architecture, add a
+   config option, or add/replace a provider -- these docs are expected to
+   stay accurate, not aspirational.
 
 ## Adding a provider
 
 If you're adding a new `metadata_enrichment`, `youtube_metadata`, or
 `history_import` source, implement the relevant ABC (`MusicMetadataProvider`,
-`VideoMetadataProvider`, `HistoryProvider`) and see AGENTS.md's "Adding a
-new metadata_enrichment provider" / "Adding a new history source" sections
+`VideoMetadataProvider`, `HistoryProvider`) and see docs/ARCHITECTURE.md's
+"Adding a new metadata_enrichment provider" / "Adding a new history source" sections
 for the exact integration points. Document what data it sends externally
 in [docs/PRIVACY.md](docs/PRIVACY.md) -- this project is privacy-first by
 design, and that document is meant to be a complete accounting.

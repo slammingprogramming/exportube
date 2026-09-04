@@ -1,7 +1,7 @@
 """Timestamp normalization and dedup-key computation shared by all
 HistoryProvider implementations.
 
-Date semantics reminder (see AGENTS.md "Date semantics"): everything here
+Date semantics reminder (see docs/ARCHITECTURE.md "Date semantics"): everything here
 produces `watched_at`, i.e. when the user encountered the video. It is
 NEVER conflated with video_upload_date or release_date, which are
 determined later by youtube_metadata / metadata_enrichment.
@@ -15,7 +15,7 @@ from dateutil import parser as dateutil_parser
 
 # dateutil cannot resolve bare timezone-name abbreviations ("EDT", "PST",
 # ...) on its own -- confirmed against a real Google Takeout
-# watch-history.html export (spec section 4 / AGENTS.md "Needs
+# watch-history.html export (spec section 4 / docs/ARCHITECTURE.md "Needs
 # verification against a real Google Takeout export"): every entry there
 # is timestamped like "Mar 21, 2025, 11:04:24 PM EDT", and without this
 # table dateutil silently drops the "EDT" and returns a NAIVE datetime
@@ -24,7 +24,7 @@ from dateutil import parser as dateutil_parser
 # entry from a real export. This table covers common North American/
 # European/Australian/Asian abbreviations; anything not listed still falls
 # through to the same naive-then-assume-UTC behavior (a remaining
-# limitation for less common zones -- see AGENTS.md). Ambiguous
+# limitation for less common zones -- see docs/ARCHITECTURE.md). Ambiguous
 # abbreviations (e.g. "CST" is also China Standard Time) resolve to their
 # most common English-locale meaning, since Takeout renders timestamps in
 # the browser/account locale that produced the export.
