@@ -1,5 +1,5 @@
-from tune_history.export.csv_export import gather_export_rows
-from tune_history.history_import.normalize import compute_dedup_key
+from exportube.export.csv_export import gather_export_rows
+from exportube.history_import.normalize import compute_dedup_key
 
 
 def _insert_unresolved(db, video_url_raw, raw_title, source="takeout_html"):

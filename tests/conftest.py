@@ -1,6 +1,6 @@
 import pytest
 
-from tune_history.storage.db import Database
+from exportube.storage.db import Database
 
 
 @pytest.fixture

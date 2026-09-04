@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}exportube{% endblock %}</title>
+  <style>
+    body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; color: #1a1a1a; background: #fafafa; }
+    a { color: #2563eb; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+    th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid #ddd; font-size: 0.9rem; }
+    th { background: #f0f0f0; }
+    .nav { margin-bottom: 1.5rem; }
+    .nav a { margin-right: 1rem; font-weight: 600; text-decoration: none; }
+    .badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 4px; font-size: 0.75rem; color: white; }
+    .badge-high { background: #16a34a; }
+    .badge-medium { background: #ca8a04; }
+    .badge-low { background: #ea580c; }
+    .badge-unidentified { background: #6b7280; }
+    .badge-not_music { background: #991b1b; }
+    .candidate { border: 1px solid #ddd; border-radius: 6px; padding: 1rem; margin-bottom: 1rem; background: white; }
+    .candidate.selected { border-color: #16a34a; background: #f0fdf4; }
+    form.inline { display: inline; }
+    button { cursor: pointer; padding: 0.3rem 0.8rem; border-radius: 4px; border: 1px solid #ccc; background: white; }
+    button.primary { background: #2563eb; color: white; border-color: #2563eb; }
+    .evidence { font-size: 0.8rem; color: #555; }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('review_list') }}">Review Uncertain Matches</a>
+  </div>
+  {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,4 +1,4 @@
-from tune_history.history_import.url_parse import parse_video_url
+from exportube.history_import.url_parse import parse_video_url
 
 
 def test_standard_watch_url():

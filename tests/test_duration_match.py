@@ -1,4 +1,4 @@
-from tune_history.matching.duration_match import DurationToleranceConfig, score_duration
+from exportube.matching.duration_match import DurationToleranceConfig, score_duration
 
 
 def test_near_exact_duration_scores_high():

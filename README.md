@@ -1,4 +1,4 @@
-# tune-history
+# Exportube
 
 Turn a YouTube watch history into an enriched, auditable **music catalog CSV**.
 
@@ -12,7 +12,7 @@ Turn a YouTube watch history into an enriched, auditable **music catalog CSV**.
 [![Maintained](https://img.shields.io/badge/maintained-yes-brightgreen.svg)](CHANGELOG.md)
 
 Given your YouTube watch history (via Google Takeout or a browser-session
-import), tune-history finds the videos that plausibly contain music,
+import), Exportube finds the videos that plausibly contain music,
 identifies the actual recordings using YouTube's own music metadata plus
 [MusicBrainz](https://musicbrainz.org) (and optionally
 [Discogs](https://www.discogs.com)), scores its confidence in each
@@ -77,10 +77,10 @@ cp .env.example .env
 2. Run the pipeline:
 
 ```bash
-tune-history import takeout.zip
-tune-history scan
-tune-history identify
-tune-history export output.csv
+exportube import takeout.zip
+exportube scan
+exportube identify
+exportube export output.csv
 ```
 
 Each step is safe to interrupt and re-run -- see "Resumability" below.
@@ -88,7 +88,7 @@ Each step is safe to interrupt and re-run -- see "Resumability" below.
 3. Optionally review uncertain matches in the browser:
 
 ```bash
-tune-history serve
+exportube serve
 ```
 
 then open http://127.0.0.1:5000.
@@ -96,14 +96,14 @@ then open http://127.0.0.1:5000.
 ## Quickstart (YouTube account / browser session)
 
 The official YouTube API does not expose watch history (see
-[docs/YOUTUBE_AUTH.md](docs/YOUTUBE_AUTH.md) for why). tune-history instead
+[docs/YOUTUBE_AUTH.md](docs/YOUTUBE_AUTH.md) for why). Exportube instead
 reads your logged-in browser's cookies to fetch your watch history feed:
 
 ```bash
-tune-history import youtube --cookies-from-browser chrome
-tune-history scan
-tune-history identify
-tune-history export output.csv
+exportube import youtube --cookies-from-browser chrome
+exportube scan
+exportube identify
+exportube export output.csv
 ```
 
 This does not expose precise per-video watch timestamps (a YouTube UI
@@ -135,26 +135,26 @@ See `examples/example_output/` for a sample of both, and
   separate stages: once metadata is cached, you can re-run `identify` with
   different confidence weights or thresholds without re-hitting the network.
 - All YouTube metadata and MusicBrainz responses are cached in the local
-  SQLite database (`data/tune_history.sqlite3` by default).
+  SQLite database (`data/exportube.sqlite3` by default).
 
 ## CLI reference
 
 ```bash
-tune-history import <takeout.zip|dir|youtube>   # acquire watch history (+ playlists/*.csv, if present)
-tune-history import --no-include-playlists ...   # skip Takeout playlist CSVs
-tune-history import-playlists                    # optional: Liked Videos/playlists via OAuth
-tune-history scan --limit N                       # fetch metadata + detect music (optionally just N videos)
-tune-history identify --limit N                   # MusicBrainz (+ Discogs, if configured) enrichment + scoring
-tune-history export [output.csv|dir]              # write both CSVs
-tune-history stats                                 # progress + confidence distribution
-tune-history serve                                 # local review web UI
+exportube import <takeout.zip|dir|youtube>   # acquire watch history (+ playlists/*.csv, if present)
+exportube import --no-include-playlists ...   # skip Takeout playlist CSVs
+exportube import-playlists                    # optional: Liked Videos/playlists via OAuth
+exportube scan --limit N                       # fetch metadata + detect music (optionally just N videos)
+exportube identify --limit N                   # MusicBrainz (+ Discogs, if configured) enrichment + scoring
+exportube export [output.csv|dir]              # write both CSVs
+exportube stats                                 # progress + confidence distribution
+exportube serve                                 # local review web UI
 ```
 
-Set `TUNE_HISTORY_DISCOGS_TOKEN` (see `.env.example`) to have `identify`
+Set `EXPORTUBE_DISCOGS_TOKEN` (see `.env.example`) to have `identify`
 automatically also query Discogs as a second, corroborating source --
 omit it and `identify` runs on MusicBrainz alone, unchanged.
 
-Run `tune-history <command> --help` for options. `scan`/`identify` accept
+Run `exportube <command> --help` for options. `scan`/`identify` accept
 `--limit N` so you can try the pipeline against a slice of a large
 history (network- and rate-limit-bound; a 50,000-video history could take
 hours end to end) before committing to a full run -- unlimited videos

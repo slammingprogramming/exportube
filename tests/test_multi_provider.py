@@ -1,5 +1,5 @@
-from tune_history.metadata_enrichment.base import MusicMetadataProvider
-from tune_history.metadata_enrichment.multi_provider import FanOutProvider
+from exportube.metadata_enrichment.base import MusicMetadataProvider
+from exportube.metadata_enrichment.multi_provider import FanOutProvider
 
 
 class OkProvider(MusicMetadataProvider):

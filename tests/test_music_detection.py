@@ -1,5 +1,5 @@
-from tune_history.music_detection.detector import MusicDetector
-from tune_history.storage.models import MusicCategory, YoutubeMusicStatus
+from exportube.music_detection.detector import MusicDetector
+from exportube.storage.models import MusicCategory, YoutubeMusicStatus
 
 
 def make_video(**overrides):

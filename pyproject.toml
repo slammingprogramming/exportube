@@ -1,5 +1,5 @@
 [project]
-name = "tune-history"
+name = "exportube"
 version = "0.1.0"
 description = "Turn YouTube watch history into an enriched, auditable music catalog CSV."
 requires-python = ">=3.10"
@@ -57,7 +57,7 @@ Issues = "https://github.com/slammingprogramming/exportube/issues"
 Changelog = "https://github.com/slammingprogramming/exportube/blob/main/CHANGELOG.md"
 
 [project.scripts]
-tune-history = "tune_history.cli:cli"
+exportube = "exportube.cli:cli"
 
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]

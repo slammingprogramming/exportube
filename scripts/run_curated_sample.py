@@ -29,14 +29,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tune_history.config import load_config
-from tune_history.history_import.base import HistoryProvider
-from tune_history.history_import.takeout_provider import TakeoutProvider
-from tune_history.metadata_enrichment.musicbrainz_provider import MusicBrainzProvider
-from tune_history.pipeline import Pipeline
-from tune_history.storage.cache import Cache
-from tune_history.storage.db import Database
-from tune_history.youtube_metadata.ytdlp_provider import YtDlpProvider
+from exportube.config import load_config
+from exportube.history_import.base import HistoryProvider
+from exportube.history_import.takeout_provider import TakeoutProvider
+from exportube.metadata_enrichment.musicbrainz_provider import MusicBrainzProvider
+from exportube.pipeline import Pipeline
+from exportube.storage.cache import Cache
+from exportube.storage.db import Database
+from exportube.youtube_metadata.ytdlp_provider import YtDlpProvider
 
 
 class FilteredProvider(HistoryProvider):

@@ -1,6 +1,6 @@
 from datetime import timezone
 
-from tune_history.history_import.normalize import compute_dedup_key, normalize_timestamp
+from exportube.history_import.normalize import compute_dedup_key, normalize_timestamp
 
 
 def test_parses_iso8601_takeout_json_timestamp():

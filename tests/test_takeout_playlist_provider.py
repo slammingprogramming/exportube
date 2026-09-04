@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from tune_history.history_import.takeout_playlist_provider import TakeoutPlaylistProvider
+from exportube.history_import.takeout_playlist_provider import TakeoutPlaylistProvider
 
 FIXTURES = Path(__file__).parent / "fixtures" / "playlists"
 

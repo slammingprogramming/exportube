@@ -1,4 +1,4 @@
-from tune_history.candidate_generation.tracklist_parser import parse_tracklist
+from exportube.candidate_generation.tracklist_parser import parse_tracklist
 
 
 SAMPLE_DESCRIPTION = """Tracklist:

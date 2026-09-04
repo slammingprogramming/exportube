@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - exportube{% endblock %}
+{% block content %}
+<h1>exportube</h1>
+
+<h2>Progress</h2>
+<table>
+  <tr><td>History entries imported</td><td>{{ counts.history_entries }}</td></tr>
+  <tr><td>Distinct videos</td><td>{{ counts.distinct_videos }}</td></tr>
+  <tr><td>Metadata fetched</td><td>{{ counts.videos_metadata_fetched }}</td></tr>
+  <tr><td>Detected as music</td><td>{{ counts.videos_detected_music }}</td></tr>
+  <tr><td>Identified &mdash; high confidence</td><td>{{ counts.videos_identified_high }}</td></tr>
+  <tr><td>Identified &mdash; medium confidence</td><td>{{ counts.videos_identified_medium }}</td></tr>
+  <tr><td>Identified &mdash; low confidence</td><td>{{ counts.videos_identified_low }}</td></tr>
+  <tr><td>Unidentified music</td><td>{{ counts.videos_unidentified }}</td></tr>
+</table>
+
+<h2>Confidence distribution (export rows)</h2>
+<table>
+  <tr><th>Level</th><th>Count</th></tr>
+  {% for level, count in distribution.items() %}
+  <tr><td><span class="badge badge-{{ level }}">{{ level }}</span></td><td>{{ count }}</td></tr>
+  {% endfor %}
+</table>
+
+<h2>Export</h2>
+<form method="post" action="{{ url_for('trigger_export') }}">
+  <button class="primary" type="submit">Export CSVs now</button>
+</form>
+{% endblock %}

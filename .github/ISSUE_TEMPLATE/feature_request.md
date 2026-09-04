@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for tune-history
+about: Suggest an idea for Exportube
 title: "[Feature] "
 labels: enhancement
 ---

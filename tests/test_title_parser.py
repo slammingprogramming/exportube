@@ -1,4 +1,4 @@
-from tune_history.candidate_generation.title_parser import parse_title
+from exportube.candidate_generation.title_parser import parse_title
 
 
 def test_strips_official_video_tag():

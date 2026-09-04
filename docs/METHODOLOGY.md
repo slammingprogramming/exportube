@@ -1,6 +1,6 @@
 # Methodology
 
-How tune-history decides "is this music" and "which recording is this,"
+How Exportube decides "is this music" and "which recording is this,"
 and how much to trust that decision.
 
 ## 1. Music detection (`music_detection/`)
@@ -105,7 +105,7 @@ TTL) and rate-limited to MusicBrainz's documented 1 req/sec.
 
 **Discogs** (`metadata_enrichment/discogs_provider.py`) is a second,
 optional, independent source: search-only, same cadence/caching pattern,
-active only when `TUNE_HISTORY_DISCOGS_TOKEN` is set. It's fanned out
+active only when `EXPORTUBE_DISCOGS_TOKEN` is set. It's fanned out
 alongside MusicBrainz via `metadata_enrichment/multi_provider.py
 FanOutProvider` -- `identify()` doesn't know or care how many providers
 are configured. Because Discogs doesn't expose MusicBrainz recording IDs,

@@ -9,13 +9,13 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
-from tune_history.config import load_config
-from tune_history.export.csv_export import gather_export_rows
-from tune_history.history_import.base import HistoryProvider
-from tune_history.metadata_enrichment.base import MusicMetadataProvider
-from tune_history.pipeline import Pipeline
-from tune_history.storage.models import WatchEvent
-from tune_history.youtube_metadata.base import VideoMetadataProvider
+from exportube.config import load_config
+from exportube.export.csv_export import gather_export_rows
+from exportube.history_import.base import HistoryProvider
+from exportube.metadata_enrichment.base import MusicMetadataProvider
+from exportube.pipeline import Pipeline
+from exportube.storage.models import WatchEvent
+from exportube.youtube_metadata.base import VideoMetadataProvider
 
 
 class FakeMetadataProvider(VideoMetadataProvider):
@@ -165,7 +165,7 @@ def test_full_pipeline_end_to_end(db, tmp_path):
 
     # Canonical library should merge vid_single_1 and vid_single_2 into one
     # recording via the shared MusicBrainz recording ID.
-    from tune_history.export.csv_export import export_canonical_csv
+    from exportube.export.csv_export import export_canonical_csv
     canonical_path = output_dir / "canonical_music_library.csv"
     canonical_count = export_canonical_csv(db, canonical_path)
     import csv
@@ -246,7 +246,7 @@ def test_multi_track_video_exports_one_row_per_segment(db, tmp_path):
     assert len({r["watch_count"] for r in rows}) == 1
 
     output_dir = tmp_path / "output"
-    from tune_history.export.csv_export import export_canonical_csv
+    from exportube.export.csv_export import export_canonical_csv
     canonical_path = output_dir / "canonical_music_library.csv"
     export_canonical_csv(db, canonical_path)
     import csv

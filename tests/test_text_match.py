@@ -1,4 +1,4 @@
-from tune_history.matching.text_match import artist_similarity, is_fuzzy_match, text_similarity
+from exportube.matching.text_match import artist_similarity, is_fuzzy_match, text_similarity
 
 
 def test_identical_strings_match_fully():

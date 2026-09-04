@@ -1,7 +1,7 @@
 """Sync the public-safe subset of this repository into the `public`
 branch's git worktree (a sibling directory -- see AGENTS.md "Dual-remote
 workflow" for how it was created: `git worktree add --orphan -b public
-../tune-history-public`). One repository, two branches with ZERO shared
+../exportube-public`). One repository, two branches with ZERO shared
 history: `main` (this directory, everything, pushed to Keybase) and
 `public` (that sibling directory, curated, pushed to GitHub) -- not two
 separate repositories. Because `public` is an orphan branch, nothing
@@ -63,7 +63,7 @@ EXCLUDE_NAMES = {
     "__pycache__", ".pytest_cache", ".pytest_tmp", "*.pyc",
     "*.sqlite3", "*.sqlite3-wal", "*.sqlite3-shm",
     ".DS_Store", "Thumbs.db",
-    # Build/install artifacts (e.g. `src/tune_history.egg-info/` from
+    # Build/install artifacts (e.g. `src/exportube.egg-info/` from
     # `pip install -e .`) -- confirmed as a real gap: an earlier sync run
     # picked up 6 stray egg-info files because this list didn't mirror
     # .gitignore's `*.egg-info/` entry.

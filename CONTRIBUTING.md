@@ -1,4 +1,4 @@
-# Contributing to tune-history
+# Contributing to Exportube
 
 Thanks for considering a contribution. This is a small, focused project --
 keeping changes scoped and well-tested matters more here than volume.
@@ -23,7 +23,7 @@ approach. In particular:
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -e ".[dev]"
-cp .env.example .env        # fill in TUNE_HISTORY_MUSICBRAINZ_CONTACT at minimum
+cp .env.example .env        # fill in EXPORTUBE_MUSICBRAINZ_CONTACT at minimum
 pytest
 ```
 

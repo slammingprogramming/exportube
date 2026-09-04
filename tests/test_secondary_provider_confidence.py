@@ -3,12 +3,12 @@ FanOutProvider) actually earns confidence credit for corroborating a
 candidate, distinct from and additive to musicbrainz_match."""
 from datetime import datetime, timezone
 
-from tune_history.candidate_generation.title_parser import parse_title
-from tune_history.confidence.engine import ConfidenceEngine
-from tune_history.metadata_enrichment.base import MusicMetadataProvider
-from tune_history.metadata_enrichment.multi_provider import FanOutProvider
-from tune_history.music_identification.identifier import identify
-from tune_history.storage.models import MusicCategory, MusicDetectionResult, YoutubeMusicStatus
+from exportube.candidate_generation.title_parser import parse_title
+from exportube.confidence.engine import ConfidenceEngine
+from exportube.metadata_enrichment.base import MusicMetadataProvider
+from exportube.metadata_enrichment.multi_provider import FanOutProvider
+from exportube.music_identification.identifier import identify
+from exportube.storage.models import MusicCategory, MusicDetectionResult, YoutubeMusicStatus
 
 
 class FakeMB(MusicMetadataProvider):

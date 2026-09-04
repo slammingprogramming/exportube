@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from tune_history.history_import.takeout_provider import TakeoutProvider
+from exportube.history_import.takeout_provider import TakeoutProvider
 
 FIXTURES = Path(__file__).parent / "fixtures"
 

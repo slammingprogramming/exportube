@@ -1,6 +1,6 @@
-from tune_history.candidate_generation.title_parser import parse_title
-from tune_history.confidence.engine import ConfidenceEngine
-from tune_history.storage.models import Candidate, ConfidenceLevel
+from exportube.candidate_generation.title_parser import parse_title
+from exportube.confidence.engine import ConfidenceEngine
+from exportube.storage.models import Candidate, ConfidenceLevel
 
 
 def test_strong_multi_signal_match_is_high_confidence():

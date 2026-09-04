@@ -1,11 +1,11 @@
-# tune-history default configuration.
+# Exportube default configuration.
 # Copy to config/config.yaml and edit, or override any value with an
-# environment variable named TUNE_HISTORY_<UPPER_SNAKE_PATH>, e.g.
-# TUNE_HISTORY_MATCHING__DURATION__STRONG_TOLERANCE_SECONDS=15
+# environment variable named EXPORTUBE_<UPPER_SNAKE_PATH>, e.g.
+# EXPORTUBE_MATCHING__DURATION__STRONG_TOLERANCE_SECONDS=15
 
 storage:
   data_dir: "./data"
-  db_path: "./data/tune_history.sqlite3"
+  db_path: "./data/exportube.sqlite3"
   cache_ttl_days:
     youtube_metadata: 30
     musicbrainz: 90
@@ -73,4 +73,4 @@ export:
 
 logging:
   level: "INFO"
-  file: "./data/logs/tune_history.log"
+  file: "./data/logs/exportube.log"

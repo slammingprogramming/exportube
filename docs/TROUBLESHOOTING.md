@@ -3,9 +3,9 @@
 ## `import` fails with "No watch-history.json or watch-history.html found"
 
 Your Takeout export didn't include the YouTube history data type, or you
-pointed tune-history at the wrong directory. Re-check the Takeout request
+pointed Exportube at the wrong directory. Re-check the Takeout request
 (see `TAKEOUT_IMPORT.md` step 1) -- **YouTube and YouTube Music > history**
-must be selected. If you extracted the zip yourself, point tune-history at
+must be selected. If you extracted the zip yourself, point Exportube at
 the top-level extracted folder (or the zip itself), not a subfolder --
 it searches recursively.
 
@@ -42,7 +42,7 @@ yt-dlp extraction is the bottleneck for large histories. Increase
 `rate_limits.ytdlp_concurrent_extractions` in `config/config.yaml` (default
 4) if your network can sustain more parallel requests. `scan` is resumable
 -- if interrupted, re-running it only processes videos not yet done
-(`tune-history stats` shows progress).
+(`exportube stats` shows progress).
 
 ## `identify` is slow
 
@@ -56,13 +56,13 @@ already-seen candidates.
 
 ## Everything is `unidentified` / `not_music`
 
-- Check `tune-history stats` -- if `videos_detected_music` is much lower
+- Check `exportube stats` -- if `videos_detected_music` is much lower
   than `distinct_videos`, the issue is likely in music detection, not
   identification. Videos with generic titles and no YouTube Music/channel
   signal are conservatively classified `not_music` (false-positive
   protection is intentional -- see `docs/METHODOLOGY.md` section 1).
 - If detection looks right but identification is failing, check that
-  MusicBrainz is reachable (`TUNE_HISTORY_MUSICBRAINZ_CONTACT` must be set
+  MusicBrainz is reachable (`EXPORTUBE_MUSICBRAINZ_CONTACT` must be set
   to a real contact per MusicBrainz's usage policy, or requests may be
   throttled/blocked).
 - Lower `confidence.thresholds.low` in config if you'd rather see more
@@ -71,7 +71,7 @@ already-seen candidates.
 
 ## A video is confidently identified as the *wrong* song
 
-Open the review UI (`tune-history serve` -> Review Uncertain Matches, or
+Open the review UI (`exportube serve` -> Review Uncertain Matches, or
 navigate directly to `/review/<video_id>`) and either accept a different
 candidate from the alternatives list or enter a manual correction. Manual
 corrections are stored separately from automated identification and always
@@ -80,13 +80,13 @@ win on export/re-export -- see `export/csv_export.py _apply_correction`.
 ## `ModuleNotFoundError` / import errors
 
 Make sure you installed with `pip install -e ".[dev]"` from the repo root
-(not just `pip install tune-history` from elsewhere) and that your venv is
+(not just `pip install exportube` from elsewhere) and that your venv is
 activated.
 
 ## SQLite "database is locked"
 
-Only run one tune-history command (CLI or `serve`) against the same
-`data/tune_history.sqlite3` at a time. The web UI (`serve`) holds a
+Only run one exportube command (CLI or `serve`) against the same
+`data/exportube.sqlite3` at a time. The web UI (`serve`) holds a
 long-lived connection; stop it before running CLI commands that write
 heavily (`scan`/`identify`), or point `--config` at a config with a
 different `storage.db_path`.

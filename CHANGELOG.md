@@ -15,7 +15,7 @@ project doesn't yet follow strict semantic versioning (pre-1.0).
   timestamped tracklist in the description are split into one identified
   row per song instead of one guess for the whole video.
 - Discogs as a second, optional `metadata_enrichment` provider, fanned out
-  alongside MusicBrainz when `TUNE_HISTORY_DISCOGS_TOKEN` is set.
+  alongside MusicBrainz when `EXPORTUBE_DISCOGS_TOKEN` is set.
 - `--limit N` on `scan`/`identify` for trying the pipeline against a slice
   of a large history before committing to a full run.
 - Community-post URL recognition (`youtube.com/post/...`) so watch-history
@@ -50,5 +50,5 @@ against a real Google Takeout export" for full details and numbers:
 - Multi-signal music detection with explicit false-positive guards.
 - Weighted, configurable confidence scoring with full evidence provenance.
 - Two-CSV export: per-video history and a deduplicated canonical library.
-- CLI (`tune-history`) and a local Flask review UI for uncertain matches.
+- CLI (`exportube`) and a local Flask review UI for uncertain matches.
 - Resumable, cached pipeline stages (SQLite-backed).

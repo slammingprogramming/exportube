@@ -1,6 +1,6 @@
 import responses
 
-from tune_history.metadata_enrichment.discogs_provider import DiscogsProvider, SEARCH_URL
+from exportube.metadata_enrichment.discogs_provider import DiscogsProvider, SEARCH_URL
 
 
 @responses.activate
@@ -13,7 +13,7 @@ def test_search_recordings_normalizes_results():
         ]},
         status=200,
     )
-    provider = DiscogsProvider(token="fake-token", user_agent="tune-history-test/0.1")
+    provider = DiscogsProvider(token="fake-token", user_agent="exportube-test/0.1")
     results = provider.search_recordings("Daft Punk", "One More Time", album="Discovery")
     assert len(results) == 1
     assert results[0]["artist"] == "Daft Punk"
@@ -26,7 +26,7 @@ def test_search_recordings_normalizes_results():
 
 @responses.activate
 def test_empty_track_returns_no_results_without_network_call():
-    provider = DiscogsProvider(token="fake-token", user_agent="tune-history-test/0.1")
+    provider = DiscogsProvider(token="fake-token", user_agent="exportube-test/0.1")
     results = provider.search_recordings("Artist", "")
     assert results == []
     assert len(responses.calls) == 0
@@ -35,7 +35,7 @@ def test_empty_track_returns_no_results_without_network_call():
 @responses.activate
 def test_network_error_returns_empty_list_not_exception():
     responses.add(responses.GET, SEARCH_URL, status=500)
-    provider = DiscogsProvider(token="fake-token", user_agent="tune-history-test/0.1")
+    provider = DiscogsProvider(token="fake-token", user_agent="exportube-test/0.1")
     results = provider.search_recordings("Artist", "Track")
     assert results == []
 
@@ -61,7 +61,7 @@ def test_results_are_cached():
             return self.store[cache_key]
 
     cache = DictCache()
-    provider = DiscogsProvider(token="fake-token", user_agent="tune-history-test/0.1", cache=cache)
+    provider = DiscogsProvider(token="fake-token", user_agent="exportube-test/0.1", cache=cache)
     provider.search_recordings("Artist", "Track")
     provider.search_recordings("Artist", "Track")
     assert call_count["n"] == 1

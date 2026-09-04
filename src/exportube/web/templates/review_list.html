@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Review - exportube{% endblock %}
+{% block content %}
+<h1>Review uncertain matches</h1>
+<p>{{ total }} video(s) are low-confidence, unidentified, or potentially multi-track. Showing up to 200.</p>
+<table>
+  <tr><th>Title</th><th>Uploader</th><th>Category</th><th>Confidence</th><th>Candidate</th><th></th></tr>
+  {% for row in rows %}
+  <tr>
+    <td>{{ row.video_title_raw }}</td>
+    <td>{{ row.uploader }}</td>
+    <td>{{ row.video_category }}</td>
+    <td><span class="badge badge-{{ row.music_identification_confidence }}">{{ row.music_identification_confidence }}</span></td>
+    <td>{{ row.artist }} {% if row.artist and row.track %}&mdash;{% endif %} {{ row.track }}</td>
+    <td><a href="{{ url_for('review_detail', video_id=row.video_id) }}">Review</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

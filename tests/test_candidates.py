@@ -1,5 +1,5 @@
-from tune_history.candidate_generation.candidates import build_seed_candidates
-from tune_history.candidate_generation.title_parser import parse_title
+from exportube.candidate_generation.candidates import build_seed_candidates
+from exportube.candidate_generation.title_parser import parse_title
 
 
 def test_youtube_music_fields_produce_seed_candidate():

@@ -3,7 +3,7 @@ network by monkeypatching yt_dlp.YoutubeDL.extract_info to raise the
 exact error messages yt-dlp is known to produce."""
 import pytest
 
-from tune_history.youtube_metadata.ytdlp_provider import YtDlpProvider
+from exportube.youtube_metadata.ytdlp_provider import YtDlpProvider
 
 
 class _FakeYDL:

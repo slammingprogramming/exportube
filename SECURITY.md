@@ -1,6 +1,6 @@
 # Security Policy
 
-tune-history processes sensitive personal data (YouTube watch history) and
+Exportube processes sensitive personal data (YouTube watch history) and
 talks to external services on your behalf. If you find a security issue --
 anything from a privacy leak to a vulnerability in how data is handled,
 stored, or transmitted -- please report it responsibly using the process
